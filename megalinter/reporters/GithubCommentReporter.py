@@ -156,6 +156,7 @@ class GithubCommentReporter(Reporter):
                 existing_comment = None
                 # Forgejo Gitea issue:
                 # Wrong ref in PR object
+                logging.debug(f"PR object: {pr.to_json()}")
                 for comment in pr.get_issue_comments().reversed:
                     if marker in comment.body:
                         existing_comment = comment
